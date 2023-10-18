@@ -5,16 +5,17 @@ import numpy as np
 import pandas as pd
 import torch
 from pylab import rcParams
-from tqdm import tqdm
-
-from seg.model import TimmSegModel, convert_3d
 from seg.dataset import load_series_images
+from seg.model import TimmSegModel, convert_3d
+from tqdm import tqdm
 
 rcParams["figure.figsize"] = 20, 8
 device = torch.device("cuda")
 torch.backends.cudnn.benchmark = True
 
-kernel_type = "timm3d_res18d_unet4b_128_128_128_dsv2_flip12_shift333p7_gd1p5_bs4_lr3e4_20x50ep"
+kernel_type = (
+    "timm3d_res18d_unet4b_128_128_128_dsv2_flip12_shift333p7_gd1p5_bs4_lr3e4_20x50ep"
+)
 load_kernel = None
 load_last = True
 n_blocks = 4

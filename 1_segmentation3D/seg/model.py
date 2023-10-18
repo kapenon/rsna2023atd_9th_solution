@@ -1,13 +1,12 @@
-import torch
-from torch import nn
-import timm
-from segmentation_models_pytorch.decoders.unet.decoder import UnetDecoder
-from timm.layers.conv2d_same import Conv2dSame
+import math
 from typing import List, Optional, Tuple
+
+import timm
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import math
-
+from segmentation_models_pytorch.decoders.unet.decoder import UnetDecoder
+from timm.layers.conv2d_same import Conv2dSame
 
 """ Conv3d w/ Same Padding
 modified from:
@@ -104,7 +103,9 @@ class Conv3dSame(nn.Conv3d):
         groups=1,
         bias=True,
     ):
-        super(Conv3dSame, self).__init__(in_channels, out_channels, kernel_size, stride, 0, dilation, groups, bias)
+        super(Conv3dSame, self).__init__(
+            in_channels, out_channels, kernel_size, stride, 0, dilation, groups, bias
+        )
 
     def forward(self, x):
         return conv3d_same(
@@ -130,7 +131,14 @@ def create_conv3d_pad(in_chs, out_chs, kernel_size, **kwargs):
 
 class TimmSegModel(nn.Module):
     def __init__(
-        self, backbone, segtype="unet", pretrained=False, drop_rate=0.0, n_blocks=4, drop_path_rate=0.0, out_dim=4
+        self,
+        backbone,
+        segtype="unet",
+        pretrained=False,
+        drop_rate=0.0,
+        n_blocks=4,
+        drop_path_rate=0.0,
+        out_dim=4,
     ):
         super(TimmSegModel, self).__init__()
 

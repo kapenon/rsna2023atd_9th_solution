@@ -16,4 +16,4 @@ docker compose up -d
 | 0_preprocess |  |
 
 # Get Started
-1. 
+1.

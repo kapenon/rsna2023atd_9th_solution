@@ -2,6 +2,7 @@ import gc
 import os
 import time
 from pathlib import Path
+
 import monai.transforms as transforms
 import numpy as np
 import pandas as pd
@@ -9,18 +10,19 @@ import torch
 import torch.cuda.amp as amp
 import torch.optim as optim
 from pylab import rcParams
-from tqdm import tqdm
-
-from seg.loss import bce_dice
-from seg.model import TimmSegModel, convert_3d
 from seg.dataset import SEGDataset
+from seg.loss import bce_dice
 from seg.metrics import multilabel_dice_score
+from seg.model import TimmSegModel, convert_3d
+from tqdm import tqdm
 
 rcParams["figure.figsize"] = 20, 8
 device = torch.device("cuda")
 torch.backends.cudnn.benchmark = True
 
-kernel_type = "timm3d_res18d_unet4b_128_128_128_dsv2_flip12_shift333p7_gd1p5_bs4_lr3e4_20x50ep"
+kernel_type = (
+    "timm3d_res18d_unet4b_128_128_128_dsv2_flip12_shift333p7_gd1p5_bs4_lr3e4_20x50ep"
+)
 load_kernel = None
 load_last = True
 n_blocks = 4
@@ -164,7 +166,9 @@ def run(fold):
     scaler = torch.cuda.amp.GradScaler()
     metric_best = 0.0
 
-    scheduler_cosine = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, n_epochs)
+    scheduler_cosine = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
+        optimizer, n_epochs
+    )
 
     for epoch in range(1, n_epochs + 1):
         scheduler_cosine.step(epoch - 1)

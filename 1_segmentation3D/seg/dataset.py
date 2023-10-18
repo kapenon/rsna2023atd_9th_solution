@@ -1,17 +1,20 @@
-import cv2
-import torch
-import numpy as np
 from pathlib import Path
+
+import cv2
 import nibabel as nib
-from torch.utils.data import Dataset
+import numpy as np
+import torch
 from monai.transforms import Resize
+from torch.utils.data import Dataset
 
 
 def load_image(image_path, image_sizes):
     image = cv2.imread(str(image_path), cv2.IMREAD_UNCHANGED)
     if image.ndim == 3:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, (image_sizes[0], image_sizes[1]), interpolation=cv2.INTER_LINEAR)
+    image = cv2.resize(
+        image, (image_sizes[0], image_sizes[1]), interpolation=cv2.INTER_LINEAR
+    )
     return image
 
 
@@ -20,7 +23,11 @@ def load_series_images(series_path, image_sizes):
     t_paths = sorted(series_path.glob("*.png"), key=lambda x: int(x.stem))
 
     n_scans = len(t_paths)
-    indices = np.quantile(list(range(n_scans)), np.linspace(0.0, 1.0, image_sizes[2])).round().astype(int)
+    indices = (
+        np.quantile(list(range(n_scans)), np.linspace(0.0, 1.0, image_sizes[2]))
+        .round()
+        .astype(int)
+    )
     t_paths = [t_paths[i] for i in indices]
 
     images = []

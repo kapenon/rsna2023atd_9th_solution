@@ -1,6 +1,7 @@
-import torch
-import numpy as np
 from typing import Optional
+
+import numpy as np
+import torch
 
 
 def binary_dice_score(
