@@ -237,6 +237,20 @@ def run(fold):
     trainer.fit(model, dl_train, dl_valid)
 
 
+def save_backbone(ckpt, out):
+    trained = CustomModel.load_from_checkpoint(ckpt)
+    torch.save(
+        trained.backbone.state_dict(),
+        out,
+    )
+
+
 if __name__ == "__main__":
     for fold in range(4):
         run(fold)
+
+    # Provide the path to the best checkpoint once the training is completed.
+    # Save the backbone weight for the second stage.
+    checkpoint = ""
+    out = "backbone.pth"
+    save_backbone(checkpoint, out)
