@@ -131,8 +131,7 @@ def run(fold):
     image_dirs = []
     for series_id in df["series_id"].values:
         mask_files += [data_dir / "segmentations" / f"{series_id}.nii"]
-        # image_dirs += [data_dir / "png_images" / f"{series_id}"]
-        image_dirs += [Path("/home/k_takenouchi/workspace/rsna2023_atd/data/001/train_images") / f"{series_id}"]
+        image_dirs += [data_dir / "png_images" / f"{series_id}"]
     df["mask_file"] = mask_files
     df["image_dir"] = image_dirs
 
@@ -189,7 +188,6 @@ def run(fold):
             torch.save(model.state_dict(), model_file)
             metric_best = metric
 
-        # Save Last
         torch.save(
             {
                 "epoch": epoch,
