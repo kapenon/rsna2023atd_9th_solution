@@ -33,12 +33,12 @@ Execute the scripts in numerical order based on the file and directory names due
 
 # Result
 
-## CV
+### CV
 | bowel | ev | kidney | liver | spleen | any_injury |
 | --- | --- | --- | --- | --- | --- |
 | 0.1293 | 0.5348 | 0.3146 | 0.4192 | 0.4454 | 0.5533 |
 
-## LB
+### LB
 | Public | Private |
 | --- | --- |
 | 0.45894 | 0.41962 |
