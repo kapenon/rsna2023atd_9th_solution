@@ -2,6 +2,7 @@ albumentations
 black
 fastparquet
 icecream
+iterative-stratification
 jupyter
 jupyter
 monai

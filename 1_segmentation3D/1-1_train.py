@@ -13,7 +13,7 @@ from pylab import rcParams
 from seg.dataset import SEGDataset
 from seg.loss import bce_dice
 from seg.metrics import multilabel_dice_score
-from seg.model import TimmSegModel, convert_3d
+from seg.models import TimmSegModel, convert_3d
 from tqdm import tqdm
 
 rcParams["figure.figsize"] = 20, 8
