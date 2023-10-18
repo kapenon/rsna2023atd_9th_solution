@@ -8,8 +8,7 @@ import pandas as pd
 # dirs
 root = Path(__file__).absolute().parents[1]
 data_dir = root / "data"
-# image_dir = data_dir / "png_images"
-image_dir = Path("/home/k_takenouchi/workspace/rsna2023_atd/data/001/train_images")
+image_dir = data_dir / "png_images"
 seg_dir = data_dir / "seg_pred"
 bowel_slice_dir = data_dir / "bowel_slice"
 bowel_slice_dir.mkdir(exist_ok=True, parents=True)
