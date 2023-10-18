@@ -1,5 +1,5 @@
 # rsna2023atd_9th_solution
-9th place solution in the Kaggle competition 'RSNA 2023 Abdominal Trauma Detection'.
+9th place solution by '[Rist] Happy1650🍽️' in the Kaggle competition 'RSNA 2023 Abdominal Trauma Detection'
 
 ![logo.png](./logo.png)
 
@@ -30,3 +30,19 @@ Execute the scripts in numerical order based on the file and directory names due
 |  | 3-2_train_patient.py | Use the weights obtained in the 1st stage to gather features and perform patient-level classification. |
 | 4_extravasation/ | 4-1_train_image_level.py | This is the 1st stage for extravasation detection. We will perform binary classification using a 2D CNN and the 'image level.csv' data. |
 |  | 4-2_train_patient.py | Similar to the bowel model, we will aggregate features from the 1st stage and conduct patient-level learning. |
+
+# Result
+
+## CV
+| bowel | ev | kidney | liver | spleen | any_injury |
+| --- | --- | --- | --- | --- | --- |
+| 0.1293 | 0.5348 | 0.3146 | 0.4192 | 0.4454 | 0.5533 |
+
+## LB
+| Public | Private |
+| --- | --- |
+| 0.45894 | 0.41962 |
+
+
+# Reference
+- https://www.kaggle.com/competitions/rsna-2023-abdominal-trauma-detection/discussion/447506
