@@ -1,4 +1,3 @@
-# %%
 import os
 import random
 from pathlib import Path
@@ -103,8 +102,7 @@ backbone = "seresnext26d_32x4d"
 # dirs
 root = Path(__file__).absolute().parents[1]
 data_dir = root / "data"
-# image_dir = data_dir / "png_images"
-image_dir = Path("/home/k_takenouchi/workspace/rsna2023_atd/data/001/train_images")
+image_dir = data_dir / "png_images"
 
 df_split = pd.read_csv(data_dir / "split.csv")
 df = pd.read_pickle(data_dir / "slice.pkl")
