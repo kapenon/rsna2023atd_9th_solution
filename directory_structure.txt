@@ -1,0 +1,36 @@
+.
+├── 0_preprocess
+│   ├── 0-1_prepare_png.py
+│   ├── 0-2_split_fold.py
+│   └── 0-3_create_slice_df.py
+├── 1_segmentation3D
+│   ├── 1-1_train.py
+│   ├── 1-2_pred.py
+│   ├── 1-3_to_voxel_df.py
+│   ├── seg
+│   │   ├── dataset.py
+│   │   ├── __init__.py
+│   │   ├── loss.py
+│   │   ├── metrics.py
+│   │   └── models.py
+│   └── seg_train.csv
+├── 2_liver_spleen_kidney
+│   ├── 2-1_train.py
+│   └── lsk
+│       ├── dataset.py
+│       ├── __init__.py
+│       ├── models.py
+│       └── utils.py
+├── 3_bowel
+│   ├── 3-1-1_create_image_level_data.py
+│   ├── 3-1-2_train_image_level.py
+│   └── 3-2_train_patient.py
+├── 4_extravasation
+│   ├── 4-1_train_image_level.py
+│   └── 4-2_train_patient.py
+├── data
+├── docker-compose.yml
+├── Dockerfile
+├── logo.png
+├── README.md
+└── requirements.txt
