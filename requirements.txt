@@ -1,0 +1,17 @@
+albumentations
+black
+fastparquet
+icecream
+iterative-stratification
+jupyter
+jupyter
+monai
+nibabel
+pyarrow
+pydicom
+pytorch-lightning
+scikit-learn
+seaborn
+segmentation-models-pytorch
+timm
+wandb

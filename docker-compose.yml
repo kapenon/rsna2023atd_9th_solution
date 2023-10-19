@@ -1,0 +1,22 @@
+version: '3'
+services:
+  rsna2023_pub:
+    build:
+        dockerfile: Dockerfile
+        context: .
+    image: rsna2023_pub:latest
+    container_name: rsna2023_pub
+    tty: true
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    # volumes:
+    #   - $HOME:/rsna2023_atd_src
+    working_dir: /rsna2023_atd
+    shm_size: 64gb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
