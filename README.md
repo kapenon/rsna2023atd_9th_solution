@@ -34,9 +34,10 @@ Execute the scripts in numerical order based on the file and directory names due
 # Result
 
 ### CV
-| bowel | ev | kidney | liver | spleen | any_injury |
-| --- | --- | --- | --- | --- | --- |
-| 0.1293 | 0.5348 | 0.3146 | 0.4192 | 0.4454 | 0.5533 |
+| | bowel | ev | kidney | liver | spleen | any_injury | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| w/o Post-Processing | 0.1293 | 0.5348 | 0.3146 | 0.4192 | 0.4454 | 0.5533 | 0.3994 |
+| w/ Post-Processing | 0.1293 | 0.5303 | 0.3141 | 0.4190 | 0.4485 | 0.4925 | 0.3889 |
 
 ### LB
 | Public | Private |
